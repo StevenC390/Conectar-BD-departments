@@ -161,9 +161,9 @@ public class Departaments extends javax.swing.JDialog {
         btn_add = new javax.swing.JButton();
         btn_edit = new javax.swing.JButton();
         btn_delete = new javax.swing.JButton();
+        btn_show_employees = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tb_departments = new javax.swing.JTable();
-        btn_show_employees = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -196,6 +196,13 @@ public class Departaments extends javax.swing.JDialog {
             }
         });
 
+        btn_show_employees.setText("Ver empleados");
+        btn_show_employees.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_show_employeesActionPerformed(evt);
+            }
+        });
+
         tb_departments.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -204,14 +211,12 @@ public class Departaments extends javax.swing.JDialog {
                 "Codigo", "Departamento", "Cantidad empleados"
             }
         ));
-        jScrollPane1.setViewportView(tb_departments);
-
-        btn_show_employees.setText("Ver empleados");
-        btn_show_employees.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_show_employeesActionPerformed(evt);
+        tb_departments.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tb_departmentsMouseClicked(evt);
             }
         });
+        jScrollPane1.setViewportView(tb_departments);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -322,7 +327,7 @@ public class Departaments extends javax.swing.JDialog {
         add_department();
     }//GEN-LAST:event_btn_addActionPerformed
 
-    private void tb_departmentsMouseClicked(java.awt.event.MouseEvent evt) {
+    private void tb_departmentsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_departmentsMouseClicked
         // TODO add your handling code here:
         int row = tb_departments.getSelectedRow();
         System.out.println(row);
@@ -340,8 +345,8 @@ public class Departaments extends javax.swing.JDialog {
             txt_employees.setText("" + employees);
             txt_department.setText(department);
         }
-    }
-    
+    }//GEN-LAST:event_tb_departmentsMouseClicked
+
     /**
      * @param args the command line arguments
      */
