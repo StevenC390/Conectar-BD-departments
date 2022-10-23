@@ -158,7 +158,7 @@ public class Departaments extends javax.swing.JDialog {
         txt_department = new javax.swing.JTextField();
         txt_employees = new javax.swing.JTextField();
         txt_code = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btn_add = new javax.swing.JButton();
         btn_edit = new javax.swing.JButton();
         btn_delete = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -175,7 +175,12 @@ public class Departaments extends javax.swing.JDialog {
 
         jLabel4.setText("Codigo");
 
-        jButton1.setText("Agregar Departamento");
+        btn_add.setText("Agregar Departamento");
+        btn_add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_addActionPerformed(evt);
+            }
+        });
 
         btn_edit.setText("Editar informacion");
         btn_edit.addActionListener(new java.awt.event.ActionListener() {
@@ -240,7 +245,7 @@ public class Departaments extends javax.swing.JDialog {
                             .addGap(162, 162, 162)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(81, 81, 81)
-                        .addComponent(jButton1)
+                        .addComponent(btn_add)
                         .addGap(74, 74, 74)
                         .addComponent(btn_edit)
                         .addGap(73, 73, 73)
@@ -269,7 +274,7 @@ public class Departaments extends javax.swing.JDialog {
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(btn_add)
                     .addComponent(btn_edit)
                     .addComponent(btn_delete))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -311,6 +316,11 @@ public class Departaments extends javax.swing.JDialog {
         // TODO add your handling code here:
         new Employees(this).setVisible(true);
     }//GEN-LAST:event_btn_show_employeesActionPerformed
+
+    private void btn_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addActionPerformed
+        // TODO add your handling code here:
+        add_department();
+    }//GEN-LAST:event_btn_addActionPerformed
 
     private void tb_departmentsMouseClicked(java.awt.event.MouseEvent evt) {
         // TODO add your handling code here:
@@ -378,10 +388,10 @@ public class Departaments extends javax.swing.JDialog {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_add;
     private javax.swing.JButton btn_delete;
     private javax.swing.JButton btn_edit;
     private javax.swing.JButton btn_show_employees;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
