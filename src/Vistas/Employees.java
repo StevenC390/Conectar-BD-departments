@@ -142,25 +142,6 @@ public class Employees extends javax.swing.JDialog {
 
     }
 
-    private void tb_employeesMouseClicked(java.awt.event.MouseEvent evt) {
-// TODO add your handling code here:
-        int row = tb_employees.getSelectedRow();
-        System.out.println(row);
-        if (row < 0) {
-            JOptionPane.showMessageDialog(this, "Debes seleccionar un departamento");
-        } else {
-            int id = Integer.parseInt((String) tb_employees.getValueAt(row, 0).toString());
-            int document = Integer.parseInt((String) tb_employees.getValueAt(row, 2).toString());
-            int department = Integer.parseInt((String) tb_employees.getValueAt(row,
-                    3).toString());
-            String name = (String) tb_employees.getValueAt(row, 1);
-            System.out.println(id + " - " + name + " - " + document + " - " + department);
-            txt_id.setText("" + id);
-            txt_document.setText("" + document);
-            txt_department.setText("" + department);
-            txt_employee.setText(name);
-        }
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -199,6 +180,11 @@ public class Employees extends javax.swing.JDialog {
                 "Id empleado", "Nombre", "N° Documento", "Departamento"
             }
         ));
+        tb_employees.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tb_employeesMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tb_employees);
 
         jLabel2.setText("Nombre");
@@ -338,6 +324,26 @@ public class Employees extends javax.swing.JDialog {
         // TODO add your handling code here:
         delete_employee();
     }//GEN-LAST:event_btn_deleteActionPerformed
+
+    private void tb_employeesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_employeesMouseClicked
+        // TODO add your handling code here:
+        int row = tb_employees.getSelectedRow();
+        System.out.println(row);
+        if (row < 0) {
+            JOptionPane.showMessageDialog(this, "Debes seleccionar un departamento");
+        } else {
+            int id = Integer.parseInt((String) tb_employees.getValueAt(row, 0).toString());
+            int document = Integer.parseInt((String) tb_employees.getValueAt(row, 2).toString());
+            int department = Integer.parseInt((String) tb_employees.getValueAt(row,
+                    3).toString());
+            String name = (String) tb_employees.getValueAt(row, 1);
+            System.out.println(id + " - " + name + " - " + document + " - " + department);
+            txt_id.setText("" + id);
+            txt_document.setText("" + document);
+            txt_department.setText("" + department);
+            txt_employee.setText(name);
+        }
+    }//GEN-LAST:event_tb_employeesMouseClicked
 
     /**
      * @param args the command line arguments
